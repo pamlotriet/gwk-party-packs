@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@import "primeicons/primeicons.css";
+
+
+:root {
+    --facebook-color: #1877F2;
+    --black: #000000;
+    --pink: #FF65C3;
+    --blue: #38B6FE;
+    --whatsapp-color: #25D366;
+}
+
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
