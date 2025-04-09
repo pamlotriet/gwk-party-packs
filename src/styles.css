@@ -8,8 +8,12 @@
     --pink: #FF65C3;
     --blue: #38B6FE;
     --whatsapp-color: #25D366;
+    --p-carousel-indicator-focus-ring-color: #38B6FE;
 }
 
+.p-carousel-indicator-active .p-carousel-indicator-button {
+    background: var(--blue) !important;
+}
 
 body {
     margin: 0px;

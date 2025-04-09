@@ -1,1 +1,29 @@
-<p>contact works!</p>
+<div class="flex p-6 pb-0 w-full flex-col ">
+    <i class="pi pi-arrow-left text-2xl hover:cursor-pointer" (click)="navigate()"></i>
+</div>
+<div class="flex flex-col lg:flex-row h-screen justify-center items-center w-full mb-12 pt-0 p-12 gap-10">
+    <div class="w-full lg:w-1/2 flex justify-center">
+        <img src="assets/images/contact-decor.svg" alt="contact decor" class="w-3/4 sm:w-2/3 max-w-md">
+    </div>
+    <div class="w-full lg:w-2/5 text-center lg:text-left">
+        <h1 class="text-4xl sm:text-5xl text-[var(--pink)] font-bold">Contact Us</h1>
+        <h2 class="mt-4 text-base sm:text-lg text-gray-700">
+            For more information on what we have to offer, feel free to reach out to us with any questions you might
+            have.
+        </h2>
+        <div class="flex flex-col gap-4 text-lg sm:text-xl mt-6 items-center lg:items-start">
+            <a href="mailto:gwk.partypacks@gmail.com" class="flex items-center">
+                <i class="pi pi-envelope text-[var(--blue)] mr-3"></i>
+                <span>gwk.partypacks&#64;gmail.com</span>
+            </a>
+            <a href="https://wa.me/27772609557" target="_blank" class="flex items-center">
+                <i class="pi pi-whatsapp text-[var(--whatsapp-color)] mr-3"></i>
+                GWK Party Packs
+            </a>
+            <a target="_blank" class="flex items-center">
+                <i class="pi pi-mobile text-[var(--pink)] mr-3"></i>
+                (+27)77 2609 557
+            </a>
+        </div>
+    </div>
+</div>
