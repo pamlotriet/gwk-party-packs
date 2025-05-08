@@ -57,3 +57,8 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+az acr login --name gwkparty
+docker build --no-cache -t gwkparty.azurecr.io/gwkpartypacks:latest .
+docker push gwkparty.azurecr.io/gwkpartypacks:latest
+az webapp restart --name gwk --resource-group general
