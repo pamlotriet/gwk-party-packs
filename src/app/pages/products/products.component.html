@@ -1,76 +1,28 @@
-<!-- Back Button -->
-<div class="flex w-full p-6">
-    <i class="pi pi-arrow-left text-2xl hover:cursor-pointer" (click)="navigate()"></i>
-</div>
-
-<!-- Products & Gallery -->
-<div class="flex w-full flex-col px-6 sm:px-12 justify-center items-center">
-
-    <!-- Products Heading -->
-    <h1 class="text-[var(--pink)] text-3xl sm:text-4xl mt-6 text-center">Our Products</h1>
-    <p class="text-base sm:text-lg text-gray-700 mb-12 mt-4 w-full sm:w-3/4 text-center">
-        Discover our delightful range of themed party packs, carefully curated to bring joy, color, and convenience to
-        your special celebrations. Whether it's a birthday, baby shower, or just for fun — we've got something magical
-        for every occasion!
-    </p>
-
-    <!-- Product Cards Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full text-center">
-        <div class="rounded-md shadow-lg flex flex-col p-6 bg-white h-full">
-            <i class="pi pi-gift text-4xl text-[var(--blue)] mt-2 mb-4"></i>
-            <h2 class="text-[var(--pink)] text-xl font-semibold mb-2">Custom Party Packs</h2>
-            <p class="text-sm sm:text-base">
-                A custom-designed party pack tailored to your specific request. Typically includes a toy, a packet of
-                chips, a sweet treat, and more.
-                Contact us for special requests!
-            </p>
-        </div>
-
-        <div class="rounded-md shadow-lg flex flex-col p-6 bg-white h-full">
-            <i class="pi pi-gift text-4xl text-[var(--blue)] mt-2 mb-4"></i>
-            <h2 class="text-[var(--pink)] text-xl font-semibold mb-2">Custom Chocolate Wrappers</h2>
-            <p class="text-sm sm:text-base">
-                Designed and printed by our team to match your event. Perfect for sweets and chocolates. Prices may vary
-                depending on the item.
-            </p>
-        </div>
-
-        <div class="rounded-md shadow-lg flex flex-col p-6 bg-white h-full">
-            <i class="pi pi-gift text-4xl text-[var(--blue)] mt-2 mb-4"></i>
-            <h2 class="text-[var(--pink)] text-xl font-semibold mb-2">Custom Party Stickers</h2>
-            <p class="text-sm sm:text-base">
-                Custom sticker wrappers for bottles, treats, and more! Designs vary by request. Let us know what you’re
-                imagining.
-            </p>
-        </div>
-
-        <div class="rounded-md shadow-lg flex flex-col p-6 bg-white h-full">
-            <i class="pi pi-gift text-4xl text-[var(--blue)] mt-2 mb-4"></i>
-            <h2 class="text-[var(--pink)] text-xl font-semibold mb-2">Custom Party Hampers</h2>
-            <p class="text-sm sm:text-base">
-                Unique hampers tailored to your needs. We’ll help you create something beautiful — check out our gallery
-                for ideas!
-            </p>
+<div class="w-full min-h-screen bg-gray-50 mb-24 sm:mb-0">
+    <div class="w-full p-6">
+        <i class="pi pi-arrow-left text-2xl hover:cursor-pointer" (click)="navigate()"></i>
+    </div>
+    <div class="px-6 sm:px-12 w-full max-w-[1440px] mx-auto">
+        <h1 class="text-[var(--pink)] text-3xl sm:text-4xl mt-6 text-center">Our Products</h1>
+        <p class="text-base sm:text-lg text-gray-700 mb-12 mt-4 w-full sm:w-3/4 mx-auto text-center">
+            Discover our delightful range of themed party packs, carefully curated to bring joy, color, and convenience
+            to your special celebrations. Whether it's a birthday, baby shower, or just for fun — we've got something
+            magical for every occasion!
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 w-full text-center pb-32">
+            @for (category of categories; track category) {
+            <div class="rounded-md shadow-lg flex flex-col p-6 bg-white h-full">
+                <i class="pi pi-gift text-4xl text-[var(--blue)] mt-2 mb-4"></i>
+                <h2 class="text-[var(--pink)] text-xl font-semibold mb-2">{{ category.title }}</h2>
+                <p class="text-sm sm:text-base">{{ category.description }}</p>
+                <div class="mt-auto flex justify-center items-center">
+                    <button [routerLink]="['/gallery', category.title]"
+                        class="hover:cursor-pointer mt-4 bg-[var(--blue)] text-white text-base w-fit px-6 py-2 flex items-center h-[44px] rounded-md">
+                        View Images
+                    </button>
+                </div>
+            </div>
+            }
         </div>
     </div>
-
-    <!-- Gallery Heading -->
-    <h1 class="text-[var(--pink)] text-3xl sm:text-4xl mt-16 text-center">Gallery</h1>
-    <p class="text-base sm:text-lg text-gray-700 mt-4 mb-8 w-full sm:w-3/4 text-center">
-        Take a peek at the joy we’ve created! Browse snapshots of our beautifully crafted party packs and the happy
-        moments they’ve helped bring to life.
-    </p>
-
-    <!-- Carousel -->
-    <p-carousel [value]="products" [numVisible]="5" [responsiveOptions]="[
-        { breakpoint: '1024px', numVisible: 3,numScroll:1 },
-        { breakpoint: '768px', numVisible: 2,numScroll:1  },
-        { breakpoint: '560px', numVisible: 1,numScroll:1  }
-      ]" [circular]="true" class="w-full h-fit md:mb-16 mb-48">
-        <ng-template let-product pTemplate="item">
-            <div class="p-4 text-center">
-                <img [src]="product.image" alt="Image" class="w-full h-64 object-cover rounded-xl shadow-md" />
-            </div>
-        </ng-template>
-    </p-carousel>
 </div>

@@ -15,7 +15,12 @@
     background: var(--blue) !important;
 }
 
+html,
 body {
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
     margin: 0px;
     padding: 0px;
 }

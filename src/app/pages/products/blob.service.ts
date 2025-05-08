@@ -13,13 +13,23 @@ export class BlobService {
     `https://${this.account}.blob.core.windows.net?${this.sasToken}`
   );
 
-  async listImageUrls(): Promise<string[]> {
+  async listImageUrls(
+    subfolder?: string,
+    specialdays?: string
+  ): Promise<string[]> {
     const containerClient = this.blobServiceClient.getContainerClient(
       this.containerName
     );
     const imageUrls: string[] = [];
 
-    for await (const blob of containerClient.listBlobsFlat()) {
+    let prefix = '';
+    if (subfolder && specialdays) {
+      prefix = `${subfolder}/${specialdays}/`;
+    } else if (subfolder) {
+      prefix = `${subfolder}/`;
+    }
+
+    for await (const blob of containerClient.listBlobsFlat({ prefix })) {
       const url = `https://${this.account}.blob.core.windows.net/${this.containerName}/${blob.name}`;
       imageUrls.push(url);
     }
