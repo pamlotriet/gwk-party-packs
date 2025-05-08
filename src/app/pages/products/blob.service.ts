@@ -7,7 +7,7 @@ import { BlobServiceClient } from '@azure/storage-blob';
 export class BlobService {
   private account = 'OkFoodsNapier';
   private containerName = 'gwk';
-  private sasToken = ''; // or leave blank if public container
+  private sasToken = '';
 
   private blobServiceClient = new BlobServiceClient(
     `https://${this.account}.blob.core.windows.net?${this.sasToken}`

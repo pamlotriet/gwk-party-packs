@@ -1,14 +1,38 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { ProductsComponent } from './pages/products/products.component';
-import { ContactComponent } from './pages/contact/contact.component';
-import { GalleryComponent } from './pages/gallery/gallery.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'products', component: ProductsComponent },
-  { path: 'gallery', component: GalleryComponent },
-  { path: 'gallery/:category', component: GalleryComponent },
+  {
+    path: 'home',
+    loadComponent: () =>
+      import('./pages/home/home.component').then((m) => m.HomeComponent),
+  },
+  {
+    path: 'contact',
+    loadComponent: () =>
+      import('./pages/contact/contact.component').then(
+        (m) => m.ContactComponent
+      ),
+  },
+  {
+    path: 'products',
+    loadComponent: () =>
+      import('./pages/products/products.component').then(
+        (m) => m.ProductsComponent
+      ),
+  },
+  {
+    path: 'gallery',
+    loadComponent: () =>
+      import('./pages/gallery/gallery.component').then(
+        (m) => m.GalleryComponent
+      ),
+  },
+  {
+    path: 'gallery/:category',
+    loadComponent: () =>
+      import('./pages/gallery/gallery.component').then(
+        (m) => m.GalleryComponent
+      ),
+  },
 ];
