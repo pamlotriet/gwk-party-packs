@@ -7,8 +7,4 @@ import { Router } from '@angular/router';
 })
 export class ContactComponent {
   router = inject(Router);
-
-  navigate() {
-    this.router.navigate(['home']);
-  }
 }

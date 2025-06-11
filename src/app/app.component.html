@@ -1,19 +1,52 @@
-<div class="sticky top-0 z-50 bg-white shadow-md p-2 px-4 w-full">
-  <div class="grid grid-cols-2 sm:grid-cols-2 items-center">
-    <div class="hover:cursor-pointer" routerLink="home">
-      <img src="assets/images/party-hats.svg" alt="party-hats.svg" class="h-12 sm:animate-none md:animate-bounce">
+<div class="sticky top-0 z-50 bg-white shadow-md px-4 py-2 w-full">
+  <div class="flex justify-between items-center">
+    <div class="hover:cursor-pointer" routerLink="/home">
+      <img src="assets/images/party-hats.svg" alt="party-hats" class="h-12 md:animate-bounce" />
     </div>
-    <div class="flex justify-end gap-4 sm:gap-6 items-center  mt-2 sm:mt-0">
-      <a href="https://www.facebook.com/gwkpartypacks" target="_blank">
-        <i class="pi pi-facebook text-[var(--facebook-color)] hover:cursor-pointer text-2xl!  sm:text-3xl"></i>
+    <div class="hidden lg:flex gap-6 items-center font-medium text-gray-700">
+      <a routerLink="/home" routerLinkActive="text-[var(--pink)] font-semibold"
+        [routerLinkActiveOptions]="{ exact: true }" class="hover:text-[var(--blue)] transition">Home</a>
+      <a routerLink="/products" routerLinkActive="text-[var(--pink)] font-semibold"
+        [routerLinkActiveOptions]="{ exact: true }" class="hover:text-[var(--blue)] transition">Products</a>
+      <a routerLink="/contact" routerLinkActive="text-[var(--pink)] font-semibold"
+        [routerLinkActiveOptions]="{ exact: true }" class="hover:text-[var(--blue)] transition">Contact</a>
+      <a href="https://www.facebook.com/gwkpartypacks" target="_blank" aria-label="Facebook">
+        <i class="pi pi-facebook text-[var(--facebook-color)] text-2xl hover:scale-110 transition-transform"></i>
       </a>
-      <a href="https://wa.me/27772609557" target="_blank">
-        <i class="pi pi-whatsapp text-[var(--whatsapp-color)] hover:cursor-pointer text-2xl!  sm:text-3xl"></i>
+      <a href="https://wa.me/27772609557" target="_blank" aria-label="WhatsApp">
+        <i class="pi pi-whatsapp text-[var(--whatsapp-color)] text-2xl hover:scale-110 transition-transform"></i>
       </a>
-      <a href="https://www.tiktok.com/@gwk.party.packs?_t=ZM-8vO1IkWEamt&_r=1" target="_blank">
-        <i class="pi pi-tiktok text-[var(--black)] hover:cursor-pointer text-2xl!  sm:text-3xl"></i>
+      <a href="https://www.tiktok.com/@gwk.party.packs?_t=ZM-8vO1IkWEamt&_r=1" target="_blank" aria-label="TikTok">
+        <i class="pi pi-tiktok text-black text-2xl hover:scale-110 transition-transform"></i>
+      </a>
+    </div>
+    <div class="lg:hidden">
+      <button (click)="isMobileMenuOpen = !isMobileMenuOpen" class="focus:outline-none">
+        <i class="pi pi-bars text-3xl text-gray-700"></i>
+      </button>
+    </div>
+  </div>
+  <div *ngIf="isMobileMenuOpen" class="flex flex-col gap-4 mt-4 lg:hidden text-gray-700 font-medium animate-fadeIn">
+    <a routerLink="/home" routerLinkActive="text-[var(--pink)] font-semibold"
+      [routerLinkActiveOptions]="{ exact: true }" class="hover:text-[var(--blue)] transition"
+      (click)="isMobileMenuOpen = false">Home</a>
+    <a routerLink="/products" routerLinkActive="text-[var(--pink)] font-semibold"
+      [routerLinkActiveOptions]="{ exact: true }" class="hover:text-[var(--blue)] transition"
+      (click)="isMobileMenuOpen = false">Products</a>
+    <a routerLink="/contact" routerLinkActive="text-[var(--pink)] font-semibold"
+      [routerLinkActiveOptions]="{ exact: true }" class="hover:text-[var(--blue)] transition"
+      (click)="isMobileMenuOpen = false">Contact</a>
+    <div class="flex justify-center gap-6 py-2 border-t border-gray-200 mt-4 pt-4">
+      <a href="https://www.facebook.com/gwkpartypacks" target="_blank" aria-label="Facebook">
+        <i class="pi pi-facebook text-[var(--facebook-color)] text-2xl hover:scale-110 transition-transform"></i>
+      </a>
+      <a href="https://wa.me/27772609557" target="_blank" aria-label="WhatsApp">
+        <i class="pi pi-whatsapp text-[var(--whatsapp-color)] text-2xl hover:scale-110 transition-transform"></i>
+      </a>
+      <a href="https://www.tiktok.com/@gwk.party.packs?_t=ZM-8vO1IkWEamt&_r=1" target="_blank" aria-label="TikTok">
+        <i class="pi pi-tiktok text-black text-2xl hover:scale-110 transition-transform"></i>
       </a>
     </div>
   </div>
+  <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>

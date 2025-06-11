@@ -1,22 +1,36 @@
-<div class="flex flex-col w-full p-6">
-    <div class="w-full  flex flex-col items-center sm:justify-between sm:items-center gap-12 ">
-        <div class="w-full  flex flex-row items-center sm:justify-between sm:items-center ">
-            <div class="flex flex-row w-2/4">
-                <i class="pi pi-arrow-left text-2xl hover:cursor-pointer" (click)="navigate()"></i>
-            </div>
-            <div class="flex flex-row-reverse w-2/4">
-                @if (isSpecialDays) {
-                <p-select [options]="specialDayOptions" [(ngModel)]="selectedSpecialDay" optionLabel="label"
-                    optionValue="value" placeholder="Select a special day" (ngModelChange)="onSpecialDayChange()"
-                    class="w-48 sm:w-56 self-start sm:self-auto"></p-select>
-                }
-            </div>
+<div class="w-full flex flex-col p-6 sm:p-12 gap-12 bg-gradient-to-b from-white to-gray-50 rounded-3xl shadow-2xl">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-6 border-b border-gray-200 pb-6">
+
+        <div class="flex items-center gap-3 text-gray-600 hover:text-blue-600 cursor-pointer transition-all"
+            (click)="navigate()">
+            <i class="pi pi-arrow-left text-2xl"></i>
+            <span class="font-medium text-lg">Back</span>
         </div>
-        <div class="grid gap-6 w-full justify-items-center text-center"
-            style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
-            @for (product of products; track product) {
-            <img [src]="product.image" alt="Product Image" loading="lazy"
-                class="w-44 h-64 object-cover rounded-md shadow-md" />
-            }
+        <div class="text-center flex-1">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-800 tracking-tight">
+                ✨ Featured Party Packs
+            </h2>
+            <p class="text-gray-500 mt-2 text-sm sm:text-base">
+                Curated with celebration in mind 🎉
+            </p>
         </div>
+        @if (isSpecialDays) {
+        <div class="self-start sm:self-auto">
+            <p-select [options]="specialDayOptions" [(ngModel)]="selectedSpecialDay" optionLabel="label"
+                optionValue="value" placeholder="🌟 Select a special day" (ngModelChange)="onSpecialDayChange()"
+                class="w-64 shadow-md rounded-xl border border-blue-200 focus:border-blue-400"></p-select>
+        </div>
+        }
     </div>
+    <div class="grid gap-10 w-full justify-items-center text-center"
+        style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+        @for (product of products; track product) {
+        <div
+            class="group relative bg-white rounded-2xl shadow-xl overflow-hidden w-full max-w-xs transform transition hover:-translate-y-1 hover:shadow-2xl">
+            <img [src]="product.image" alt="Product Image" loading="lazy"
+                class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" />
+
+        </div>
+        }
+    </div>
+</div>
