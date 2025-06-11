@@ -15,5 +15,5 @@ WORKDIR /app
 COPY --from=build /app/package.json ./
 RUN npm install --only=production
 COPY --from=build /app/dist/ /app/dist/
-EXPOSE 80
+EXPOSE 8080
 CMD ["npm", "run", "serve:ssr:gwkPartyPacks"]
